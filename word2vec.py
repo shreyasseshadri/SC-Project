@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import itertools
+from collections import namedtuple
 
 class word2vec:
     
@@ -139,3 +140,5 @@ test_neg_sent=drop_less(test_neg_sent)
 
 corpus=train_pos_sent+train_neg_sent+test_pos_sent+test_neg_sent
 print('Total number of sentences : ',len(corpus),'!!! how will i run in my computer!')
+
+
