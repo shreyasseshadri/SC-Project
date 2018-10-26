@@ -131,11 +131,37 @@ def drop_less(vec):
             if len(word)<2:
                 del word
     return list(itertools.chain.from_iterable(vec))
-
+# print(train_pos_sent[0])
 train_pos_sent=drop_less(train_pos_sent)
 train_neg_sent=drop_less(train_neg_sent)
 test_pos_sent=drop_less(test_pos_sent)
 test_neg_sent=drop_less(test_neg_sent)
 
 corpus=train_pos_sent+train_neg_sent+test_pos_sent+test_neg_sent
+print(corpus[0])
+corpus_lenght=len(corpus)
+for i,text in enumerate(corpus):
+    corpus[corpus_lenght-i-1]=corpus[corpus_lenght-i-1].split()
+    if len(corpus[corpus_lenght-i-1])<2:
+        del corpus[corpus_lenght-i-1]
+
 print('Total number of sentences : ',len(corpus),'!!! how will i run in my computer!')
+
+from gensim.models import Word2Vec
+# define training data
+# train model
+# print(corpus[:3])
+model = Word2Vec(corpus, min_count=1)
+# summarize the loaded model
+print(model)
+# # summarize vocabulary
+words = list(model.wv.vocab)
+# print(words)
+# # access vector for one word
+# print(model['Ya'])
+# save model
+print("model saved")
+model.save('model.bin')
+# load model
+# new_model = Word2Vec.load('model.bin')
+# print(new_model)
