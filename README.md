@@ -24,3 +24,8 @@ eg:
 ```
 python3 make_csv.py ./data/imdb/test/pos ./data/imdb/test/pos.csv
 ```
+Steps for running docker image
+
+```
+ sudo nvidia-docker run --rm --name tf1  -v /home/ram_aditya/sc-project/data:/data -p 8888:8888 -p 6006:6006  tensorflow/tensorflow:latest-gpu jupyter notebook --allow-root
+```
