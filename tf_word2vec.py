@@ -5,7 +5,7 @@ def make_vectors(corpus):
     words=[]
     sentences=[]
     for sent in corpus:
-        sentences.append(sent.split(" "))
+        //sentences.append(sent.split(" "))
         for i in sent.split(" "):
             if i!="." or i!="\n" or i!="-":
                 words.append(i)
